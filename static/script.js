@@ -213,8 +213,8 @@ function showToast(message, duration = 3000) {
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('project-link')) {
         const href = e.target.getAttribute('href');
-        if (href === 'https://github.com/gtsrhythm/Lide') {
-            return; // Allow normal link behavior for LIDE
+        if (href === 'https://github.com/gtsrhythm/Lide' || href === 'https://gtsrhythm.github.io/Lide/') {
+            return; // Allow normal link behavior for LIDE links
         }
         e.preventDefault();
         const message = e.target.dataset.message || 'This is a private project. Links are not available to the public.';
