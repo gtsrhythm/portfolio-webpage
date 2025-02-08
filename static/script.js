@@ -212,6 +212,10 @@ function showToast(message, duration = 3000) {
 // Update click handler for project links
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('project-link')) {
+        const href = e.target.getAttribute('href');
+        if (href === 'https://github.com/gtsrhythm/Lide') {
+            return; // Allow normal link behavior for LIDE
+        }
         e.preventDefault();
         const message = e.target.dataset.message || 'This is a private project. Links are not available to the public.';
         showToast(message);
