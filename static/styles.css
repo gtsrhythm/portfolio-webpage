@@ -46,8 +46,8 @@ body::before {
     will-change: transform;
     transform-style: preserve-3d;
     perspective: 1000px;
-    transform: translateY(0) !important; /* Override any parallax */
-    margin-top: 0; /* Ensure it starts at the top */
+    transform: translateY(0) !important; 
+    margin-top: 0; 
 }
 
 .hero-content {
@@ -55,11 +55,11 @@ body::before {
     position: relative;
     z-index: 2;
     padding: 2rem;
-    padding-bottom: 4rem; /* Add space for scroll indicator */
+    padding-bottom: 4rem; 
 }
 
 .hero h1 {
-    font-size: 4.5rem;  /* Increased size for more impact */
+    font-size: 4.5rem;  
     margin-bottom: 1rem;
     background: linear-gradient(to right, #fff, #808080);
     -webkit-background-clip: text;
@@ -80,10 +80,10 @@ body::before {
 }
 
 .animated-text {
-    font-size: 1.5rem;  /* Reduced from 2rem */
-    min-height: 1.5em;  /* Adjusted to match new font size */
+    font-size: 1.5rem;  
+    min-height: 1.5em;  
     position: relative;
-    margin-bottom: 2rem;  /* Reduced from 3rem */
+    margin-bottom: 2rem;  
     color: var(--secondary-color);
 }
 
@@ -102,14 +102,14 @@ body::before {
 }
 
 .btn {
-    padding: 1rem 2.5rem;  /* Larger buttons */
+    padding: 1rem 2.5rem;  
     border-radius: 25px;
     text-decoration: none;
     font-weight: 500;
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
-    backdrop-filter: none;  /* Remove glass effect */
+    backdrop-filter: none;  
 }
 
 .btn::before {
@@ -313,7 +313,7 @@ footer {
     margin-bottom: 4rem;
     width: 50%;
     padding-right: 40px;
-    opacity: 0; /* Items start hidden */
+    opacity: 0; 
     will-change: transform, opacity, filter;
 }
 
@@ -497,7 +497,7 @@ footer {
     }
 
     .animated-text {
-        font-size: 1.2rem;  /* Smaller on mobile */
+        font-size: 1.2rem;  
     }
 
     .projects {
@@ -576,7 +576,7 @@ footer {
 
 @keyframes float {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }  /* Reduced from -5px */
+    50% { transform: translateY(-3px); }  
     100% { transform: translateY(0); }
 }
 
@@ -650,7 +650,7 @@ html {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 6rem; /* Move up higher */
+    bottom: 6rem; 
     left: 50%;
     transform: translateX(-50%);
     color: var(--secondary-color);
@@ -663,7 +663,7 @@ html {
     border-radius: 50%;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 3; /* Ensure it's above other elements */
+    z-index: 3; 
 }
 
 .scroll-indicator:hover {
@@ -672,7 +672,7 @@ html {
 }
 
 .scroll-indicator .material-icons {
-    font-size: 2rem; /* Slightly smaller */
+    font-size: 2rem; 
     display: block;
 }
 
@@ -688,12 +688,8 @@ html {
     }
 }
 
-/* Reduce parallax effect on hero */
 [data-speed="0.1"] {
-    /* Remove these lines:
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-    */
+    
 }
 
 [data-speed="0.1"]:hover {
@@ -755,7 +751,6 @@ html {
     }
 }
 
-/* Loading screen */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -795,7 +790,6 @@ html {
     border-bottom-color: var(--primary-color);
 }
 
-/* Enhanced section headings */
 section h2[data-animation="title"] {
     background: linear-gradient(
         120deg,
@@ -819,7 +813,6 @@ section h2[data-animation="title"] {
     to { background-position: 200% center }
 }
 
-/* Loading screen */
 .loading-container {
     position: fixed;
     top: 0;
@@ -883,11 +876,26 @@ section h2[data-animation="title"] {
     50% { opacity: 1; }
 }
 
-/* Hide main content while loading */
 body.loading {
     overflow: hidden;
 }
 
 body.loading main {
     opacity: 0;
+}
+
+.timeline-item:nth-child(4) .timeline-content {
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.9), rgba(32, 32, 32, 0.8));
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:nth-child(4) .timeline-dot {
+    background: #a0a0a0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.timeline-item:nth-child(4) .timeline-content:hover {
+    transform: translateY(-8px) scale(1.01);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

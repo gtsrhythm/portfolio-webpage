@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loadingContainer = document.querySelector('.loading-container');
-    
+
     window.addEventListener('load', () => {
         document.body.classList.remove('loading');
         loadingContainer.style.opacity = '0';
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Application Developer",
         "UI/UX Engineer"
     ];
-    
+
     const animatedText = document.querySelector('.animated-text');
     let currentText = 0;
     let currentChar = 0;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function typeText() {
         const text = texts[currentText];
-        
+
         if (isDeleting) {
             animatedText.textContent = text.substring(0, currentChar - 1);
             currentChar--;
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const contactSection = document.getElementById('contact');
         const rect = contactSection.getBoundingClientRect();
-        
+
         if (rect.top <= window.innerHeight * 0.5) {
             scrollToTop.classList.add('visible');
         } else {
@@ -103,19 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSectionIndex = 0;
     });
 
-    // Scroll indicator click handler
     scrollIndicator.addEventListener('click', () => {
         currentSectionIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
         document.getElementById(sections[currentSectionIndex]).scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Scroll to top click handler
     scrollToTop.addEventListener('click', () => {
         currentSectionIndex = 0;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Reset section index when user manually scrolls
     let isScrolling;
     window.addEventListener('scroll', () => {
         clearTimeout(isScrolling);
@@ -135,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function createParticle(parent) {
     const particle = document.createElement('div');
     particle.className = 'particle';
-    
+
     const size = Math.random() * 4 + 1;
     particle.style.cssText = `
         position: absolute;
@@ -152,19 +149,17 @@ function createParticle(parent) {
     parent.appendChild(particle);
 }
 
-// Add mousemove effect
 document.addEventListener('mousemove', (e) => {
     const particles = document.querySelectorAll('.particle');
     particles.forEach(particle => {
-        const speed = particle.offsetWidth * 0.02; // Reduced from 0.05
+        const speed = particle.offsetWidth * 0.02; 
         const x = (window.innerWidth / 2 - e.pageX) * speed;
         const y = (window.innerHeight / 2 - e.pageY) * speed;
-        
+
         particle.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
 
-// Add this to your existing CSS (in styles.css)
 const style = document.createElement('style');
 style.textContent = `
     @keyframes float-particle {
@@ -184,37 +179,32 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Add after DOM content loaded event handler
-
 function showToast(message, duration = 3000) {
-    // Remove existing toast if any
     const existingToast = document.querySelector('.toast');
     if (existingToast) {
         existingToast.remove();
     }
 
-    // Create and show new toast
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.textContent = message;
     document.body.appendChild(toast);
 
-    // Trigger animation
     setTimeout(() => toast.classList.add('show'), 10);
 
-    // Remove toast after duration
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
     }, duration);
 }
 
-// Update click handler for project links
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('project-link')) {
         const href = e.target.getAttribute('href');
-        if (href === 'https://github.com/gtsrhythm/Lide' || href === 'https://gtsrhythm.github.io/Lide/') {
-            return; // Allow normal link behavior for LIDE links
+        if (href === 'https://github.com/gtsrhythm/Lide' || 
+            href === 'https://gtsrhythm.github.io/Lide/' || 
+            href === 'https://autosphere.surge.sh/') {
+            return;
         }
         e.preventDefault();
         const message = e.target.dataset.message || 'This is a private project. Links are not available to the public.';

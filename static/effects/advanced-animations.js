@@ -10,8 +10,7 @@ class AdvancedAnimations {
 
     initGSAP() {
         gsap.registerPlugin(ScrollTrigger);
-        
-        // Smooth scroll setup
+
         gsap.config({
             autoSleep: 60,
             force3D: true
@@ -19,9 +18,9 @@ class AdvancedAnimations {
     }
 
     setupScrollTrigger() {
-        // Batch timeline items for staggered reveal
+
         const timelineItems = gsap.utils.toArray('.timeline-item');
-        
+
         gsap.set(timelineItems, {
             opacity: 0,
             y: 100,
@@ -50,7 +49,6 @@ class AdvancedAnimations {
             })
         });
 
-        // Animate timeline line drawing
         gsap.from('.timeline::before', {
             scrollTrigger: {
                 trigger: '.timeline',
@@ -62,7 +60,6 @@ class AdvancedAnimations {
             transformOrigin: "top center"
         });
 
-        // Animate dots with pop effect
         gsap.utils.toArray('.timeline-dot').forEach(dot => {
             gsap.from(dot, {
                 scrollTrigger: {
@@ -76,7 +73,6 @@ class AdvancedAnimations {
             });
         });
 
-        // Animate timeline dates
         gsap.utils.toArray('.timeline-date').forEach(date => {
             gsap.from(date, {
                 scrollTrigger: {
@@ -109,7 +105,6 @@ class AdvancedAnimations {
         });
     }
 
-    // Add mouse parallax effect
     addMouseParallax() {
         document.addEventListener('mousemove', (e) => {
             const { clientX, clientY } = e;
@@ -134,7 +129,7 @@ class AdvancedAnimations {
     }
 
     setupAboutAnimations() {
-        // Animate about cards
+
         gsap.utils.toArray('.about-card').forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: {
@@ -151,7 +146,6 @@ class AdvancedAnimations {
             });
         });
 
-        // Animate skill pills
         gsap.utils.toArray('.skill-pill').forEach((pill, i) => {
             gsap.from(pill, {
                 scrollTrigger: {
@@ -191,13 +185,13 @@ class AdvancedAnimations {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
+
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
+
                 const rotateX = (y - centerY) / 10;
                 const rotateY = (centerX - x) / 10;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
             });
 
@@ -208,7 +202,6 @@ class AdvancedAnimations {
     }
 }
 
-// Initialize animations
 document.addEventListener('DOMContentLoaded', () => {
     new AdvancedAnimations();
 });
