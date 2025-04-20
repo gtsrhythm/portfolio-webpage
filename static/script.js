@@ -203,7 +203,8 @@ document.addEventListener('click', (e) => {
         const href = e.target.getAttribute('href');
         if (href === 'https://github.com/gtsrhythm/Lide' || 
             href === 'https://gtsrhythm.github.io/Lide/' || 
-            href === 'https://autospheredetailing.surge.sh/') {
+            href === 'https://autospheredetailing.surge.sh/' ||
+            href === 'https://autosphere-detailing.com/') {
             return;
         }
         e.preventDefault();
