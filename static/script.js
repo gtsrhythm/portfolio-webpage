@@ -204,7 +204,9 @@ document.addEventListener('click', (e) => {
         if (href === 'https://github.com/gtsrhythm/Lide' || 
             href === 'https://gtsrhythm.github.io/Lide/' || 
             href === 'https://autospheredetailing.surge.sh/' ||
-            href === 'https://autosphere-detailing.com/') {
+            href === 'https://autosphere-detailing.com/' ||
+            href === 'https://gtsrhythm.github.io/lyrical-ide/landing.html' ||
+            href === 'https://github.com/gtsrhythm/lyrical-ide') {
             return;
         }
         e.preventDefault();
